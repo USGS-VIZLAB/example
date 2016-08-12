@@ -47,10 +47,10 @@ publish:
     name: index
     publisher: page
     template: fullPage
-    depends: [ "cars-section", "figure-style" ]
+    depends: [ "cars-section", "figure-style", "iris-section"]
     context:
       title: Testing
-      sections: [ "cars-section" ]
+      sections: [ "cars-section", "iris-section"]
       resources: [ "figure-style" ]
   -
     id: cars-section
@@ -61,6 +61,15 @@ publish:
       id: carsFig
       figure: "plot-cars"
       caption: Relationship between speed and stopping distance on several cars
+  -
+    id: iris-section
+    publisher: section
+    template: simplefigure
+    depends: [ "plot-iris" ]
+    context:
+      id: irisFig
+      figure: "plot-iris"
+      caption: Relationship between iris sepal length to pedal length
   -
     id: figure-style
     location: layout/css/main.css
