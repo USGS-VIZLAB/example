@@ -1,4 +1,4 @@
-visualizeData.cars <- function(viz) {
+visualize.cars <- function(viz) {
   data <- lapply(viz[['depends']], readData)
   png(filename = viz[['location']], width = 500, height = 500)
   plot(data[[2]], xlab = "Speed (mph)", ylab = "Stopping distance (ft)",
@@ -7,7 +7,7 @@ visualizeData.cars <- function(viz) {
   dev.off()
 }
 
-visualizeData.iris <- function(viz) {
+visualize.iris <- function(viz) {
   # need to name depends
   data <- lapply(viz[['depends']], readData)[[1]]
   png(filename = viz[['location']], width = 500, height = 500)
