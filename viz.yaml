@@ -1,0 +1,68 @@
+vizlab: "0.1.4"
+info:
+  id: example
+  name: Simple but complete vizualization
+  date: 2016-07-19
+  publish-date: 2016-08-02
+  path: /example
+  analytics-id: UA-78530187-1
+  description: >-
+    This is meant to touch all features and act as an integration
+    test of the vizlab platform.
+fetch:
+  -
+    id: iris-data
+    location: data/iris.csv
+    mimetype: text/csv
+  -
+    id: cars-data
+    location: cache/cars.csv
+    fetcher: cars
+    mimetype: text/csv
+process:
+  -
+    id: calc-cars
+    location: cache/car-loess.rds
+    processor: cars
+    reader: rds
+    depends: [ "cars-data" ]
+visualize:
+  -
+    id: plot-cars
+    location: figures/cars.png
+    visualizer: cars
+    depends: [ "calc-cars", "cars-data" ]
+    mimetype: image/png
+    alttext: "plot of ratio of speed to breaking distance"
+  -
+    id: plot-iris
+    location: figures/iris.png
+    visualizer: iris
+    depends: [ "iris-data" ]
+    mimetype: image/png
+    alttext: "plot of iris sepal length to pedal length"
+publish:
+  -
+    id: index
+    name: index
+    publisher: page
+    template: fullPage
+    depends: [ "cars-section", "figure-style" ]
+    context:
+      title: Testing
+      sections: [ "cars-section" ]
+      resources: [ "figure-style" ]
+  -
+    id: cars-section
+    publisher: section
+    template: simplefigure
+    depends: [ "plot-cars" ]
+    context:
+      id: carsFig
+      figure: "plot-cars"
+      caption: Relationship between speed and stopping distance on several cars
+  -
+    id: figure-style
+    location: layout/css/main.css
+    publisher: resource
+    mimetype: text/css
