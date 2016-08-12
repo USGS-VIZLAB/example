@@ -11,6 +11,8 @@ visualize.iris <- function(viz) {
   # need to name depends
   data <- lapply(viz[['depends']], readData)[[1]]
   png(filename = viz[['location']], width = 500, height = 500)
-  plot(data$Sepal.Length, data$Petal.Length, col = as.factor(data$Species))
+  library(gsplot)
+  gs<- gsplot() %>% points(data$Sepal.Length, data$Petal.Length, col = as.factor(data$Species))
+  print(gs)
   dev.off()
 }
