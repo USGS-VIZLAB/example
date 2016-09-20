@@ -1,35 +1,9 @@
-<<<<<<< HEAD
 # example
 An example visualization, demonstrating features
-=======
-# vizlab
-Package with utilities for building vizlab pages
-[![Build Status](https://travis-ci.org/USGS-VIZLAB/vizlab.svg)](https://travis-ci.org/USGS-VIZLAB/vizlab)
-[![Coverage Status](https://coveralls.io/repos/github/USGS-VIZLAB/vizlab/badge.svg?branch=master)](https://coveralls.io/github/USGS-VIZLAB/vizlab?branch=master)
-
-## Installation
-
-The most stable+current version of this package can be installed with this R command:
-```r
-install.packages("vizlab", dependencies=TRUE, 
-  repos=c("http://owi.usgs.gov/R","https://cran.rstudio.com"))
-```
-and updated with this command:
-```r
-update.packages(oldPkgs=c("vizlab"),
-  dependencies=TRUE, repos=c("http://owi.usgs.gov/R", "https://cran.rstudio.com"))
-```
-
-The most cutting edge version of the package can be installed if you have the `devtools` package:
-```r
-devtools::install_github("USGS-VIZLAB/vizlab")
-```
-
-Some packages are only suggested and will need to be installed manually to open up that functionality.  One example is sbtools which can be used if project data is stored on sciencebase.
 
 ## Using this package
 
-To setup the make file for a new project, use the `makeMakefiles()` function. This only needs to happen once. Then you can use `make` at the command line to run the whole process.
+To setup the make file for a new project, use the `createMakefiles()` function from `vizlab`. This only needs to happen once. Then you can use `make` at the command line to run the whole process.
 
 ## Disclaimer
 
@@ -43,4 +17,4 @@ This software is provided "AS IS."
  [
     ![CC0](http://i.creativecommons.org/p/zero/1.0/88x31.png)
   ](http://creativecommons.org/publicdomain/zero/1.0/)
->>>>>>> 3f5e5d8cfc4e7c2f9203faee40acd5fc7dd0613b
+
