@@ -50,6 +50,7 @@ visualize:
     visualizer: cars
     depends: [ "calc-cars", "cars-data" ]
     mimetype: image/png
+    title: "Speed vs. Breaking Distance"
     alttext: "plot of ratio of speed to breaking distance"
   -
     id: plot-iris
@@ -57,6 +58,7 @@ visualize:
     visualizer: iris
     depends: [ "iris-data" ]
     mimetype: image/png
+    title: "Sepal length vs. pedal length"
     alttext: "plot of iris sepal length to pedal length"
   -
     id: relativeAbundanceFig
@@ -64,8 +66,9 @@ visualize:
     depends: ["CuyahogaShort"]
     visualizer: qTDS
     mimetype: image/svg+xml
-    alttext: "cuyahoga fig"
-   
+    title: "Cuyahoga figure"
+    alttext: "figure displaying discharge of Cuyahoga river"
+
 publish:
   -
     id: index
@@ -97,7 +100,7 @@ publish:
       caption: Relationship between iris sepal length to pedal length
   -
     id: relativeAbundance-section
-    template: simpleFigure
+    template: simplefigure
     depends: relativeAbundanceFig
     publisher: section
     context:
