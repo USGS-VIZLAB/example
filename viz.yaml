@@ -40,7 +40,6 @@ process:
     id: CuyahogaShort
     location: cache/process/CuyahogaShort.tsv
     mimetype: text/tab-separated-values
-    scripts: scripts/process/cuyahoga.R
     depends: Cuyahoga
     processor: cuyahoga
 visualize:
@@ -48,7 +47,7 @@ visualize:
     id: plot-cars
     location: figures/cars.png
     visualizer: cars
-    depends: [ "calc-cars", "cars-data" ]
+    depends: ["calc-cars", "cars-data"]
     mimetype: image/png
     title: "Speed vs. Breaking Distance"
     alttext: "plot of ratio of speed to breaking distance"
@@ -61,13 +60,13 @@ visualize:
     title: "Sepal length vs. pedal length"
     alttext: "plot of iris sepal length to pedal length"
   -
-    id: relativeAbundanceFig
-    location: figures/relativeAbundanceFig.svg
-    depends: ["CuyahogaShort"]
+    id: cuyahogaFig
+    location: figures/cuyahogaFig.svg
+    depends: "CuyahogaShort"
     visualizer: qTDS
     mimetype: image/svg+xml
     title: "Cuyahoga figure"
-    alttext: "figure displaying discharge of Cuyahoga river"
+    alttext: "figure displaying total dissovled solids vs. discharge of Cuyahoga river"
 
 publish:
   -
@@ -101,11 +100,11 @@ publish:
   -
     id: relativeAbundance-section
     template: simplefigure
-    depends: relativeAbundanceFig
+    depends: cuyahogaFig
     publisher: section
     context:
-      id: relAbun-fig
-      figure: relativeAbundanceFig
+      id: cuyahoga-fig
+      figure: cuyahogaFig
       caption: Total dissolved solids vs discharge
   -
     id: figure-style

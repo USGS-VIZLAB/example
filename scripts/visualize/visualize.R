@@ -20,6 +20,6 @@ visualize.iris <- function(viz) {
 visualize.qTDS <- function(viz){
   CuyahogaShort=readData(viz[['depends']])
   svg(viz[['location']], height=4, width=4)
-  plot(TDS ~ Q, CuyahogaShort)
+  plot(TDS ~ Q, CuyahogaShort, log = "xy")
   dev.off()
 }
