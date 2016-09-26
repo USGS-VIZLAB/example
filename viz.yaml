@@ -74,10 +74,10 @@ publish:
     name: index
     publisher: page
     template: fullPage
-    depends: [ "cars-section", "figure-style", "iris-section", "relativeAbundance-section"]
+    depends: [ "cars-section", "figure-style", "text-section","iris-section", "Cuyahoga-section"]
     context:
       title: Testing
-      sections: [ "cars-section", "iris-section", "relativeAbundance-section"]
+      sections: [ "cars-section", "text-section","iris-section", "Cuyahoga-section"]
       resources: [ "figure-style" ]
   -
     id: cars-section
@@ -89,6 +89,16 @@ publish:
       figure: "plot-cars"
       caption: Relationship between speed and stopping distance on several cars
   -
+    id: text-section
+    template: printall
+    publisher: section
+    context: 
+      text: 
+        This is a text section in the viz.yaml.  Since it is only
+        text, it doesn't need be referenced anywhere outside of the publish
+        section.  Text wrapping in the viz should be handled automatically.
+        Follow YAML conventions to change formatting.  
+  -
     id: iris-section
     publisher: section
     template: simplefigure
@@ -98,7 +108,7 @@ publish:
       figure: "plot-iris"
       caption: Relationship between iris sepal length to pedal length
   -
-    id: relativeAbundance-section
+    id: Cuyahoga-section
     template: simplefigure
     depends: cuyahogaFig
     publisher: section
