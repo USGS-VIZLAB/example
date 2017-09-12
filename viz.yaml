@@ -80,7 +80,7 @@ publish:
     id: index
     name: index
     publisher: page
-    template: fullPage
+    template: fullpage
     depends: [ "cars-section", "figure-style", "text-section","iris-section", "Cuyahoga-section"]
     context:
       title: Testing
