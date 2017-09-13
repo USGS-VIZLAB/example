@@ -1,6 +1,10 @@
 visualize.cars <- function(viz) {
-  data <- lapply(viz[['depends']], readData)
-  png(filename = viz[['location']], width = 500, height = 500)
+  data <- readDepends(viz)
+
+  sizes <- data[["plot-info"]]
+  png(filename = viz[['location']], 
+      width = sizes$width, 
+      height = sizes$height)
   plot(data[[2]], xlab = "Speed (mph)", ylab = "Stopping distance (ft)",
        las = 1)
   lines(data[[1]], col = "red")
@@ -9,17 +13,23 @@ visualize.cars <- function(viz) {
 
 visualize.iris <- function(viz) {
   # need to name depends
-  data <- lapply(viz[['depends']], readData)[[1]]
-  png(filename = viz[['location']], width = 500, height = 500)
+  data <- readDepends(viz)
+  
+  png(filename = viz[['location']], 
+      width = 500, height = 500)
   library(gsplot)
-  gs<- gsplot() %>% points(data$Sepal.Length, data$Petal.Length, col = as.factor(data$Species))
+  gs<- gsplot() %>% 
+    points(data$Sepal.Length, data$Petal.Length, 
+           col = as.factor(data$Species))
   print(gs)
   dev.off()
 }
 
 visualize.qTDS <- function(viz){
-  CuyahogaShort=readData(viz[['depends']])
+  depends=readData(viz)
+  CuyahogaShort <- depends$data
+  colors <- depends$colors
   svg(viz[['location']], height=4, width=4)
-  plot(TDS ~ Q, CuyahogaShort, log = "xy")
+  plot(TDS ~ Q, CuyahogaShort, log = "xy", col=colors$lines)
   dev.off()
 }
