@@ -91,11 +91,19 @@ publish:
     name: index
     publisher: page
     template: fullpage
-    depends: [ "cars-section", "figure-style", "text-section","iris-section", "Cuyahoga-section"]
+    depends: 
+      opensansfont: "opensansfont"
+      cars-section: "cars-section"
+      footer: "footer-section"
+      figure-style: "figure-style"
+      text-section: "text-section"
+      iris-section: "iris-section"
+      Cuyahoga-section: "Cuyahoga-section"
+      footerCSS: "lib-footer-css"
     context:
       title: Testing
       sections: [ "cars-section", "text-section","iris-section", "Cuyahoga-section"]
-      resources: [ "figure-style" ]
+      resources: [ "figure-style", "footerCSS", "opensansfont"]
   -
     id: cars-section
     publisher: section
@@ -138,3 +146,22 @@ publish:
     location: layout/css/main.css
     publisher: resource
     mimetype: text/css
+  -
+    id: footer-section
+    template: footer-template
+    publisher: footer
+    depends: [ "lib-footer-css"]
+    blogsInFooter: TRUE
+    vizzies:
+      - name: Drought in the Lower Colorado Basin
+        org: USGS-CIDA
+        repo: OWDI-Lower-Colorado-Drought-Vis
+    blogs: 
+      - name: Using the dataRetrieval Stats Service
+        url: https://owi.usgs.gov/blog/stats-service-map/
+        thumbLoc: https://owi.usgs.gov/blog/static/stats-service-map/plot-1.png
+  -
+    id: opensansfont
+    publisher: googlefont
+    family: "Source Sans Pro"
+    weight: [300, 400, 600]
