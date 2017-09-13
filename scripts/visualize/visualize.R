@@ -3,8 +3,8 @@ visualize.cars <- function(viz) {
 
   sizes <- data[["plot-info"]]
   png(filename = viz[['location']], 
-      width = sizes$width, 
-      height = sizes$height)
+      width = sizes[["width"]], 
+      height = sizes[["height"]])
   plot(data[[2]], xlab = "Speed (mph)", ylab = "Stopping distance (ft)",
        las = 1)
   lines(data[[1]], col = "red")
@@ -26,10 +26,10 @@ visualize.iris <- function(viz) {
 }
 
 visualize.qTDS <- function(viz){
-  depends=readData(viz)
-  CuyahogaShort <- depends$data
-  colors <- depends$colors
+  depends=readDepends(viz)
+  CuyahogaShort <- depends[["data"]]
+  colors <- depends[["colors"]]
   svg(viz[['location']], height=4, width=4)
-  plot(TDS ~ Q, CuyahogaShort, log = "xy", col=colors$lines)
+  plot(TDS ~ Q, CuyahogaShort, log = "xy", col=colors$points)
   dev.off()
 }

@@ -16,7 +16,7 @@ global:
     width: 700
   -
     id: color-stuff
-    lines: green
+    points: green
 fetch:
   -
     id: iris-data
