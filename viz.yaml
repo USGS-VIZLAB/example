@@ -9,7 +9,7 @@ info:
   description: >-
     This is meant to touch all features and act as an integration
     test of the vizlab platform.
-global:
+parameter:
   -
     id: plot-info
     height: 700
