@@ -9,6 +9,14 @@ info:
   description: >-
     This is meant to touch all features and act as an integration
     test of the vizlab platform.
+global:
+  -
+    id: plot-info
+    height: 700
+    width: 700
+  -
+    id: color-stuff
+    points: green
 fetch:
   -
     id: iris-data
@@ -53,7 +61,7 @@ visualize:
     location: figures/cars.png
     scripts: scripts/visualize/visualize.R
     visualizer: cars
-    depends: [ "calc-cars", "cars-data" ]
+    depends: [ "calc-cars", "cars-data","plot-info" ]
     mimetype: image/png
     title: "Speed vs. Braking Distance"
     alttext: "plot of ratio of speed to braking distance"
@@ -69,7 +77,9 @@ visualize:
   -
     id: cuyahogaFig
     location: figures/cuyahogaFig.svg
-    depends: "CuyahogaShort"
+    depends: 
+      data: "CuyahogaShort"
+      colors: "color-stuff"
     scripts: scripts/visualize/visualize.R
     visualizer: qTDS
     mimetype: image/svg+xml
