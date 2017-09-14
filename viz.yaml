@@ -1,29 +1,41 @@
-vizlab: "0.1.4"
+vizlab: "0.1.5"
 info:
   id: example
   name: Simple but complete vizualization
-  date: 2016-07-19
+  date: 2016-11-21
+  publish-date: 9999-12-31
   path: /example
   analytics-id: UA-78530187-1
   description: >-
     This is meant to touch all features and act as an integration
     test of the vizlab platform.
+global:
+  -
+    id: plot-info
+    height: 700
+    width: 700
+  -
+    id: color-stuff
+    points: green
 fetch:
   -
     id: iris-data
     location: data/iris.csv
     mimetype: text/csv
-    refetch: FALSE
+    scripts:
+    refetch: TRUE
   -
     id: cars-data
     location: cache/cars.csv
     fetcher: cars
     mimetype: text/csv
+    scripts: scripts/fetch/cars.R
     refetch: TRUE
   -
     id: Cuyahoga
     location: cache/fetch/CuyahogaTDS.csv
     fetcher: sciencebase
+    scripts:
     refetch: TRUE
     remoteItemId: 575d839ee4b04f417c2a03fe
     remoteFilename: CuyahogaTDS.csv
@@ -38,6 +50,7 @@ process:
     id: calc-cars
     location: cache/car-loess.rds
     processor: cars
+    scripts: scripts/process/cars.R
     reader: rds
     depends: [ "cars-data" ]
   -
@@ -46,18 +59,21 @@ process:
     mimetype: text/tab-separated-values
     depends: Cuyahoga
     processor: cuyahoga
+    scripts: scripts/process/cuyahoga.R
 visualize:
   -
     id: plot-cars
     location: figures/cars.png
+    scripts: scripts/visualize/visualize.R
     visualizer: cars
-    depends: ["calc-cars", "cars-data"]
+    depends: [ "calc-cars", "cars-data","plot-info" ]
     mimetype: image/png
-    title: "Speed vs. Breaking Distance"
-    alttext: "plot of ratio of speed to breaking distance"
+    title: "Speed vs. Braking Distance"
+    alttext: "plot of ratio of speed to braking distance"
   -
     id: plot-iris
     location: figures/iris.png
+    scripts: scripts/visualize/visualize.R
     visualizer: iris
     depends: [ "iris-data" ]
     mimetype: image/png
@@ -66,25 +82,33 @@ visualize:
   -
     id: cuyahogaFig
     location: figures/cuyahogaFig.svg
-    depends: "CuyahogaShort"
+    depends:
+      data: "CuyahogaShort"
+      colors: "color-stuff"
+    scripts: scripts/visualize/visualize.R
     visualizer: qTDS
     mimetype: image/svg+xml
     title: "Cuyahoga figure"
     alttext: "figure displaying total dissovled solids vs. discharge of Cuyahoga river"
-
 publish:
   -
     id: index
     name: index
     publisher: page
-    template: fullPage
-    depends: [ "cars-section", "figure-style", "text-section", "iris-section",
-      "Cuyahoga-section", "markdown-section1", "markdown-section2" ]
+    template: fullpage
+    depends:
+      opensansfont: "opensansfont"
+      cars-section: "cars-section"
+      footer: "footer-section"
+      figure-style: "figure-style"
+      text-section: "text-section"
+      iris-section: "iris-section"
+      Cuyahoga-section: "Cuyahoga-section"
+      footerCSS: "lib-footer-css"
     context:
       title: Testing
-      sections: [ "cars-section", "text-section", "markdown-section1",
-        "iris-section", "Cuyahoga-section", "markdown-section2" ]
-      resources: [ "figure-style" ]
+      sections: [ "cars-section", "text-section","iris-section", "Cuyahoga-section"]
+      resources: [ "figure-style", "footerCSS", "opensansfont"]
   -
     id: cars-section
     publisher: section
@@ -141,3 +165,22 @@ publish:
     location: layout/css/main.css
     publisher: resource
     mimetype: text/css
+  -
+    id: footer-section
+    template: footer-template
+    publisher: footer
+    depends: [ "lib-footer-css"]
+    blogsInFooter: TRUE
+    vizzies:
+      - name: Drought in the Lower Colorado Basin
+        org: USGS-CIDA
+        repo: OWDI-Lower-Colorado-Drought-Vis
+    blogs:
+      - name: Using the dataRetrieval Stats Service
+        url: https://owi.usgs.gov/blog/stats-service-map/
+        thumbLoc: https://owi.usgs.gov/blog/static/stats-service-map/plot-1.png
+  -
+    id: opensansfont
+    publisher: googlefont
+    family: "Source Sans Pro"
+    weight: [300, 400, 600]
