@@ -23,20 +23,17 @@ fetch:
     location: data/iris.csv
     mimetype: text/csv
     scripts:
-    refetch: TRUE
   -
     id: cars-data
     location: cache/cars.csv
     fetcher: cars
     mimetype: text/csv
     scripts: scripts/fetch/cars.R
-    refetch: TRUE
   -
     id: Cuyahoga
     location: cache/fetch/CuyahogaTDS.csv
     fetcher: sciencebase
     scripts:
-    refetch: TRUE
     remoteItemId: 575d839ee4b04f417c2a03fe
     remoteFilename: CuyahogaTDS.csv
     mimetype: text/csv
