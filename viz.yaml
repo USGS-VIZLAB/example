@@ -100,18 +100,20 @@ publish:
       opensansfont: "opensansfont"
       cars-section: "cars-section"
       footer: "footer-section"
+      header: "header-section"
       figure-style: "figure-style"
       text-section: "text-section"
       iris-section: "iris-section"
       Cuyahoga-section: "Cuyahoga-section"
       footerCSS: "lib-footer-css"
+      headerCSS: "lib-header-css"
       jquery: "lib-jquery-js"
       svg-inject: "lib-svg-injector-js"
       vizlabjs: "lib-vizlab-javascript"
     context:
       title: Testing
       sections: [ "cars-section", "text-section","iris-section", "Cuyahoga-section"]
-      resources: [ "figure-style", "footerCSS", "opensansfont","jquery", "svg-inject", "vizlabjs"]
+      resources: [ "figure-style", "headerCSS", "footerCSS", "opensansfont","jquery", "svg-inject", "vizlabjs"]
   -
     id: cars-section
     publisher: section
@@ -169,6 +171,16 @@ publish:
     publisher: resource
     mimetype: text/css
   -
+    id: header-section
+    template: header-template
+    publisher: section
+    depends: lib-usgs-logo
+    context:
+      id: header
+      title: Example Viz
+      logo: usgs-logo
+      caption: Example Viz
+  -
     id: footer-section
     template: footer-template
     publisher: footer
@@ -178,6 +190,11 @@ publish:
       - name: Drought in the Lower Colorado Basin
         org: USGS-CIDA
         repo: OWDI-Lower-Colorado-Drought-Vis
+        url: https://www.doi.gov/water/owdi.cr.drought/en
+        thumbLoc: https://www.doi.gov/water/owdi.cr.drought/img/thumbnail_vizlab.jpg
+      - name: Hurricane Harvey
+        org: USGS-VIZLAB
+        repo: hurricane-harvey
     blogs:
       - name: Using the dataRetrieval Stats Service
         url: https://owi.usgs.gov/blog/stats-service-map/
