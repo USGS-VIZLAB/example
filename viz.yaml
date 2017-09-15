@@ -168,6 +168,12 @@ publish:
       - name: Drought in the Lower Colorado Basin
         org: USGS-CIDA
         repo: OWDI-Lower-Colorado-Drought-Vis
+        url: https://www.doi.gov/water/owdi.cr.drought/en
+        thumbLoc: https://www.doi.gov/water/owdi.cr.drought/img/thumbnail_vizlab.jpg
+      - name: Hurricane Harvey
+        org: USGS-VIZLAB
+        repo: hurricane-harvey
+        
     blogs: 
       - name: Using the dataRetrieval Stats Service
         url: https://owi.usgs.gov/blog/stats-service-map/
