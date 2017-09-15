@@ -105,6 +105,8 @@ publish:
       text-section: "text-section"
       iris-section: "iris-section"
       Cuyahoga-section: "Cuyahoga-section"
+      markdown-section1: "markdown-section1"
+      markdown-section2: "markdown-section2"
       footerCSS: "lib-footer-css"
       headerCSS: "lib-header-css"
       jquery: "lib-jquery-js"
@@ -112,7 +114,7 @@ publish:
       vizlabjs: "lib-vizlab-javascript"
     context:
       title: Testing
-      sections: [ "cars-section", "text-section","iris-section", "Cuyahoga-section"]
+      sections: [ "cars-section", "text-section","iris-section", "markdown-section1", "Cuyahoga-section", "markdown-section2"]
       resources: [ "figure-style", "headerCSS", "footerCSS", "opensansfont","jquery", "svg-inject", "vizlabjs"]
   -
     id: cars-section
