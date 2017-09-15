@@ -9,7 +9,7 @@ info:
   description: >-
     This is meant to touch all features and act as an integration
     test of the vizlab platform.
-global:
+parameter:
   -
     id: plot-info
     height: 700
@@ -105,10 +105,13 @@ publish:
       iris-section: "iris-section"
       Cuyahoga-section: "Cuyahoga-section"
       footerCSS: "lib-footer-css"
+      jquery: "lib-jquery-js"
+      svg-inject: "lib-svg-injector-js"
+      vizlabjs: "lib-vizlab-javascript"
     context:
       title: Testing
       sections: [ "cars-section", "text-section","iris-section", "Cuyahoga-section"]
-      resources: [ "figure-style", "footerCSS", "opensansfont"]
+      resources: [ "figure-style", "footerCSS", "opensansfont","jquery", "svg-inject", "vizlabjs"]
   -
     id: cars-section
     publisher: section
