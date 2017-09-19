@@ -173,7 +173,7 @@ publish:
     template: footer-template
     publisher: footer
     depends: [ "lib-footer-css"]
-    blogsInFooter: FALSE
+    blogsInFooter: TRUE
     vizzies:
       - name: Drought in the Lower Colorado Basin
         org: USGS-CIDA
