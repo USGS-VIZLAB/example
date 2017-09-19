@@ -37,6 +37,11 @@ fetch:
     remoteItemId: 575d839ee4b04f417c2a03fe
     remoteFilename: CuyahogaTDS.csv
     mimetype: text/csv
+  -
+    id: markdown-text
+    location: data/markdownText.yaml
+    reader: md
+    mimetype: text/yaml
 process:
   -
     id: calc-cars
@@ -74,7 +79,7 @@ visualize:
   -
     id: cuyahogaFig
     location: figures/cuyahogaFig.svg
-    depends: 
+    depends:
       data: "CuyahogaShort"
       colors: "color-stuff"
     scripts: scripts/visualize/visualize.R
@@ -88,7 +93,7 @@ publish:
     name: index
     publisher: page
     template: fullpage
-    depends: 
+    depends:
       opensansfont: "opensansfont"
       cars-section: "cars-section"
       footer: "footer-section"
@@ -97,12 +102,17 @@ publish:
       text-section: "text-section"
       iris-section: "iris-section"
       Cuyahoga-section: "Cuyahoga-section"
+      markdown-section1: "markdown-section1"
+      markdown-section2: "markdown-section2"
       footerCSS: "lib-footer-css"
       headerCSS: "lib-header-css"
+      jquery: "lib-jquery-js"
+      svg-inject: "lib-svg-injector-js"
+      vizlabjs: "lib-vizlab-javascript"
     context:
       title: Testing
-      sections: [ "cars-section", "text-section","iris-section", "Cuyahoga-section"]
-      resources: [ "figure-style", "footerCSS","headerCSS", "opensansfont"]
+      sections: [ "cars-section", "text-section","iris-section", "markdown-section1", "Cuyahoga-section", "markdown-section2"]
+      resources: [ "figure-style", "headerCSS", "footerCSS", "opensansfont","jquery", "svg-inject", "vizlabjs"]
   -
     id: cars-section
     publisher: section
@@ -116,12 +126,26 @@ publish:
     id: text-section
     template: printall
     publisher: section
-    context: 
-      text: 
+    context:
+      text:
         This is a text section in the viz.yaml.  Since it is only
         text, it doesn't need be referenced anywhere outside of the publish
         section.  Text wrapping in the viz should be handled automatically.
-        Follow YAML conventions to change formatting.  
+        Follow YAML conventions to change formatting.
+  -
+    id: markdown-section1
+    template: printall
+    publisher: section
+    depends: markdown-text
+    context:
+      text: markdown-text.example-markdown
+  -
+    id: markdown-section2
+    template: printall
+    publisher: section
+    depends: markdown-text
+    context:
+      text: markdown-text.markdown-table
   -
     id: iris-section
     publisher: section
@@ -170,8 +194,7 @@ publish:
       - name: Hurricane Harvey
         org: USGS-VIZLAB
         repo: hurricane-harvey
-        
-    blogs: 
+    blogs:
       - name: Using the dataRetrieval Stats Service
         url: https://owi.usgs.gov/blog/stats-service-map/
         thumbLoc: https://owi.usgs.gov/blog/static/stats-service-map/plot-1.png
