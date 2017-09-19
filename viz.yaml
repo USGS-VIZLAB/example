@@ -93,9 +93,11 @@ publish:
     name: index
     publisher: page
     template: fullpage
-    depends:
-      opensansfont: "opensansfont"
+    depends: 
+      sourcesansprofont: "sourcesansprofont"
       cars-section: "cars-section"
+      social: "social-section"
+      vertical-social: "vertical-social-section"
       footer: "footer-section"
       header: "header-section"
       figure-style: "figure-style"
@@ -106,13 +108,14 @@ publish:
       markdown-section2: "markdown-section2"
       footerCSS: "lib-footer-css"
       headerCSS: "lib-header-css"
+      socialCSS: "lib-social-media-css"
       jquery: "lib-jquery-js"
       svg-inject: "lib-svg-injector-js"
       vizlabjs: "lib-vizlab-javascript"
     context:
       title: Testing
-      sections: [ "cars-section", "text-section","iris-section", "markdown-section1", "Cuyahoga-section", "markdown-section2"]
-      resources: [ "figure-style", "headerCSS", "footerCSS", "opensansfont","jquery", "svg-inject", "vizlabjs"]
+      sections: [ "vertical-social", "cars-section", "social", "text-section", "iris-section", "markdown-section1", "Cuyahoga-section", "markdown-section2"]
+      resources: [ "figure-style", "footerCSS", "headerCSS", "socialCSS", "sourcesansprofont","jquery", "svg-inject", "vizlabjs"]
   -
     id: cars-section
     publisher: section
@@ -170,6 +173,16 @@ publish:
     publisher: resource
     mimetype: text/css
   -
+    id: social-section
+    template: social-media-template
+    publisher: section
+    depends: ["lib-social-media-css"]
+  -
+    id: vertical-social-section
+    template: vertical-social-media-template
+    publisher: section
+    depends: ["lib-social-media-css"]
+  -
     id: header-section
     template: header-template
     publisher: section
@@ -189,17 +202,15 @@ publish:
       - name: Drought in the Lower Colorado Basin
         org: USGS-CIDA
         repo: OWDI-Lower-Colorado-Drought-Vis
-        url: https://www.doi.gov/water/owdi.cr.drought/en
-        thumbLoc: https://www.doi.gov/water/owdi.cr.drought/img/thumbnail_vizlab.jpg
-      - name: Hurricane Harvey
+      - name: Microplastics in the Great Lakes
         org: USGS-VIZLAB
-        repo: hurricane-harvey
+        repo: great-lakes-microplastics
     blogs:
-      - name: Using the dataRetrieval Stats Service
-        url: https://owi.usgs.gov/blog/stats-service-map/
-        thumbLoc: https://owi.usgs.gov/blog/static/stats-service-map/plot-1.png
+      - name: Visualizing Tropical Storm Colin Precipitation using geoknife
+        url: https://owi.usgs.gov/blog/ts-colin-precip/
+        thumbLoc: https://owi.usgs.gov/blog/static/ts-colin-precip/use-functions-1.png
   -
-    id: opensansfont
+    id: sourcesansprofont
     publisher: googlefont
     family: "Source Sans Pro"
     weight: [300, 400, 600]
