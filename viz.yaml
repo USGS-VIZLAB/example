@@ -82,18 +82,21 @@ publish:
     publisher: page
     template: fullpage
     depends: 
-      opensansfont: "opensansfont"
+      sourcesansprofont: "sourcesansprofont"
       cars-section: "cars-section"
+      social: "social-section"
+      vertical-social: "vertical-social-section"
       footer: "footer-section"
       figure-style: "figure-style"
       text-section: "text-section"
       iris-section: "iris-section"
       Cuyahoga-section: "Cuyahoga-section"
       footerCSS: "lib-footer-css"
+      socialCSS: "lib-social-media-css"
     context:
       title: Testing
-      sections: [ "cars-section", "text-section","iris-section", "Cuyahoga-section"]
-      resources: [ "figure-style", "footerCSS", "opensansfont"]
+      sections: [ "vertical-social", "cars-section", "social", "text-section","iris-section", "Cuyahoga-section"]
+      resources: [ "figure-style", "footerCSS", "socialCSS", "sourcesansprofont"]
   -
     id: cars-section
     publisher: section
@@ -137,6 +140,16 @@ publish:
     publisher: resource
     mimetype: text/css
   -
+    id: social-section
+    template: social-media-template
+    publisher: section
+    depends: ["lib-social-media-css"]
+  -
+    id: vertical-social-section
+    template: vertical-social-media-template
+    publisher: section
+    depends: ["lib-social-media-css"]
+  -
     id: footer-section
     template: footer-template
     publisher: footer
@@ -146,12 +159,18 @@ publish:
       - name: Drought in the Lower Colorado Basin
         org: USGS-CIDA
         repo: OWDI-Lower-Colorado-Drought-Vis
-    blogs: 
+      - name: Microplastics in the Great Lakes
+        org: USGS-VIZLAB
+        repo: great-lakes-microplastics
+    blogs:
+      - name: Visualizing Tropical Storm Colin Precipitation using geoknife
+        url: https://owi.usgs.gov/blog/ts-colin-precip/
+        thumbLoc: https://owi.usgs.gov/blog/static/ts-colin-precip/use-functions-1.png
       - name: Using the dataRetrieval Stats Service
         url: https://owi.usgs.gov/blog/stats-service-map/
         thumbLoc: https://owi.usgs.gov/blog/static/stats-service-map/plot-1.png
   -
-    id: opensansfont
+    id: sourcesansprofont
     publisher: googlefont
     family: "Source Sans Pro"
     weight: [300, 400, 600]
