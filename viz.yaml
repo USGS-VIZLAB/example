@@ -37,6 +37,11 @@ fetch:
     remoteItemId: 575d839ee4b04f417c2a03fe
     remoteFilename: CuyahogaTDS.csv
     mimetype: text/csv
+  -
+    id: markdown-text
+    location: data/markdownText.yaml
+    reader: md
+    mimetype: text/yaml
 process:
   -
     id: calc-cars
@@ -74,7 +79,7 @@ visualize:
   -
     id: cuyahogaFig
     location: figures/cuyahogaFig.svg
-    depends: 
+    depends:
       data: "CuyahogaShort"
       colors: "color-stuff"
     scripts: scripts/visualize/visualize.R
@@ -99,13 +104,18 @@ publish:
       text-section: "text-section"
       iris-section: "iris-section"
       Cuyahoga-section: "Cuyahoga-section"
+      markdown-section1: "markdown-section1"
+      markdown-section2: "markdown-section2"
       footerCSS: "lib-footer-css"
       headerCSS: "lib-header-css"
       socialCSS: "lib-social-media-css"
+      jquery: "lib-jquery-js"
+      svg-inject: "lib-svg-injector-js"
+      vizlabjs: "lib-vizlab-javascript"
     context:
       title: Testing
-      sections: [ "vertical-social", "cars-section", "social", "text-section", "iris-section", "Cuyahoga-section"]
-      resources: [ "figure-style", "footerCSS", "headerCSS", "socialCSS", "sourcesansprofont"]
+      sections: [ "vertical-social", "cars-section", "social", "text-section", "iris-section", "markdown-section1", "Cuyahoga-section", "markdown-section2"]
+      resources: [ "figure-style", "footerCSS", "headerCSS", "socialCSS", "sourcesansprofont","jquery", "svg-inject", "vizlabjs"]
   -
     id: cars-section
     publisher: section
@@ -119,12 +129,26 @@ publish:
     id: text-section
     template: printall
     publisher: section
-    context: 
-      text: 
+    context:
+      text:
         This is a text section in the viz.yaml.  Since it is only
         text, it doesn't need be referenced anywhere outside of the publish
         section.  Text wrapping in the viz should be handled automatically.
-        Follow YAML conventions to change formatting.  
+        Follow YAML conventions to change formatting.
+  -
+    id: markdown-section1
+    template: printall
+    publisher: section
+    depends: markdown-text
+    context:
+      text: markdown-text.example-markdown
+  -
+    id: markdown-section2
+    template: printall
+    publisher: section
+    depends: markdown-text
+    context:
+      text: markdown-text.markdown-table
   -
     id: iris-section
     publisher: section
