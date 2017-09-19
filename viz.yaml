@@ -9,26 +9,31 @@ info:
   description: >-
     This is meant to touch all features and act as an integration
     test of the vizlab platform.
+parameter:
+  -
+    id: plot-info
+    height: 700
+    width: 700
+  -
+    id: color-stuff
+    points: green
 fetch:
   -
     id: iris-data
     location: data/iris.csv
     mimetype: text/csv
     scripts:
-    refetch: TRUE
   -
     id: cars-data
     location: cache/cars.csv
     fetcher: cars
     mimetype: text/csv
     scripts: scripts/fetch/cars.R
-    refetch: TRUE
   -
     id: Cuyahoga
     location: cache/fetch/CuyahogaTDS.csv
     fetcher: sciencebase
     scripts:
-    refetch: TRUE
     remoteItemId: 575d839ee4b04f417c2a03fe
     remoteFilename: CuyahogaTDS.csv
     mimetype: text/csv
@@ -53,7 +58,7 @@ visualize:
     location: figures/cars.png
     scripts: scripts/visualize/visualize.R
     visualizer: cars
-    depends: [ "calc-cars", "cars-data" ]
+    depends: [ "calc-cars", "cars-data","plot-info" ]
     mimetype: image/png
     title: "Speed vs. Braking Distance"
     alttext: "plot of ratio of speed to braking distance"
@@ -69,7 +74,9 @@ visualize:
   -
     id: cuyahogaFig
     location: figures/cuyahogaFig.svg
-    depends: "CuyahogaShort"
+    depends: 
+      data: "CuyahogaShort"
+      colors: "color-stuff"
     scripts: scripts/visualize/visualize.R
     visualizer: qTDS
     mimetype: image/svg+xml
@@ -87,16 +94,18 @@ publish:
       social: "social-section"
       vertical-social: "vertical-social-section"
       footer: "footer-section"
+      header: "header-section"
       figure-style: "figure-style"
       text-section: "text-section"
       iris-section: "iris-section"
       Cuyahoga-section: "Cuyahoga-section"
       footerCSS: "lib-footer-css"
+      headerCSS: "lib-header-css"
       socialCSS: "lib-social-media-css"
     context:
       title: Testing
-      sections: [ "vertical-social", "cars-section", "social", "text-section","iris-section", "Cuyahoga-section"]
-      resources: [ "figure-style", "footerCSS", "socialCSS", "sourcesansprofont"]
+      sections: [ "vertical-social", "cars-section", "social", "text-section", "iris-section", "Cuyahoga-section"]
+      resources: [ "figure-style", "footerCSS", "headerCSS", "socialCSS", "sourcesansprofont"]
   -
     id: cars-section
     publisher: section
@@ -150,6 +159,16 @@ publish:
     publisher: section
     depends: ["lib-social-media-css"]
   -
+    id: header-section
+    template: header-template
+    publisher: section
+    depends: lib-usgs-logo
+    context:
+      id: header
+      title: Example Viz
+      logo: usgs-logo
+      caption: Example Viz
+  -
     id: footer-section
     template: footer-template
     publisher: footer
@@ -166,9 +185,6 @@ publish:
       - name: Visualizing Tropical Storm Colin Precipitation using geoknife
         url: https://owi.usgs.gov/blog/ts-colin-precip/
         thumbLoc: https://owi.usgs.gov/blog/static/ts-colin-precip/use-functions-1.png
-      - name: Using the dataRetrieval Stats Service
-        url: https://owi.usgs.gov/blog/stats-service-map/
-        thumbLoc: https://owi.usgs.gov/blog/static/stats-service-map/plot-1.png
   -
     id: sourcesansprofont
     publisher: googlefont
