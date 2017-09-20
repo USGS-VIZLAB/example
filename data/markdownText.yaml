@@ -2,11 +2,19 @@
 example-markdown: |+
   ### Most markdown should work as expected
 
+
   * can include lists
   * like this
 
-  1. or like this
+
+  1. or *like* this
   2. if you prefer
+  
+  
+  [fancy link](https://owi.usgs.gov/ "OWI") 
+  
+  <https://owi.usgs.gov/>
+  
 markdown-table: |+
   | Sepal.Length | Sepal.Width | Petal.Length | Petal.Width | Species |
   |--------------|-------------|--------------|-------------|---------|
