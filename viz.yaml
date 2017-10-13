@@ -82,7 +82,7 @@ fetch:
     location: cache/fetch/CuyahogaTDS.csv
     fetcher: sciencebase
     scripts:
-    remoteItemId: 575d839ee4b04f417c2a03fe
+    remoteItemId: 59dffeb3e4b05fe04cce9fc2
     remoteFilename: CuyahogaTDS.csv
     mimetype: text/csv
   -
