@@ -5,3 +5,4 @@ figures/
 vizlab/
 makefile
 .Rproj.user
+*.Rproj

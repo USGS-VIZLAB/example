@@ -9,6 +9,54 @@ info:
   description: >-
     This is meant to touch all features and act as an integration
     test of the vizlab platform.
+  keywords: vizlab, visualizations, data, R
+  mimetypeDictionary: moreMimetypes.yaml
+  twitter: "@USGS_R"
+  owner:
+    name: Alison Appling
+    email: aappling@usgs.gov
+    affiliation: U.S. Geological Survey
+  contributors:
+    -
+      name: Jordan Walker
+      email: jiwalker@usgs.gov
+      affiliation: U.S. Geological Survey
+    -
+      name: Lindsay Carr
+      email: lcarr@usgs.gov
+      affiliation: U.S. Geological Survey
+    -
+      name: Samantha Oliver
+      email: soliver@usgs.gov
+      affiliation: U.S. Geological Survey
+    -
+      name: Jordan Read
+      email: jread@usgs.gov
+      affiliation: U.S. Geological Survey
+    -
+      name: David Watkins
+      email: wwatkins@usgs.gov
+      affiliation: U.S. Geological Survey
+    -
+      name: Marty Wernimont
+      email: mwernimont@usgs.gov
+      affiliation: U.S. Geological Survey
+    -
+      name: Jacob Zwart
+      email: jzwart@usgs.gov
+      affiliation: U.S. Geological Survey
+  required-packages:
+    vizlab:
+      repo: github
+      version: 0.2.0
+      name: USGS-VIZLAB/vizlab
+      ref: f685369086a4d9f890ad8ce837dfa582586aaba3
+    dplyr:
+      repo: CRAN
+      version: 0.7.2
+    dataRetrieval:
+      repo: GRAN
+      version: 2.7.3
 parameter:
   -
     id: plot-info
