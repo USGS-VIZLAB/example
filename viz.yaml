@@ -10,7 +10,6 @@ info:
     This is meant to touch all features and act as an integration
     test of the vizlab platform.
   keywords: vizlab, visualizations, data, R
-  mimetypeDictionary: moreMimetypes.yaml
   twitter: "@USGS_R"
   owner:
     name: Alison Appling
