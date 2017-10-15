@@ -39,10 +39,13 @@ visualize.dots <- function(viz){
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 450" preserveAspectRatio="xMidYMid meet" version="1.1">
   <g>
   <circle cx = "400" cy = "100" r = "10" onmousemove = "hovertext(\'this circle is green\',evt)" onmouseout = "hovertext(\' \')" style="fill:green"/>
-  <rect x = "40" y = "320" height="14" width="400" onmousemove = "hovertext(\'this rectangular shape happens to be blue\',evt)" onmouseout = "hovertext(\' \')" style="fill:blue"/>
+  <rect x = "550" y = "20" height="410" width="40" style="fill:green"/>
+  <rect x = "505" y = "20" height="410" width="40" onmousemove = "hovertext(\'this mouser is below the tooltip\',evt)" onmouseout = "hovertext(\' \')" style="fill:grey"/>
+  <rect x = "40" y = "320" height="14" width="400" onmousemove = "hovertext(\'this shape happens to be blue\',evt)" onmouseout = "hovertext(\' \')" style="fill:blue"/>
   <circle cx = "10" cy = "120" r = "8" onmousemove = "hovertext(\'this circle is red\',evt)" onmouseout = "hovertext(\' \')" style="fill:red"/>
   </g>
   <g id = "tooltip-group"/>
+  <rect x = "550" y = "20" height="410" width="40" onmousemove = "hovertext(\'this mouser is above the tooltip\',evt)" onmouseout = "hovertext(\' \')" style="fill-opacity:0"/>
   </svg>'
   cat(svg_text, file = viz[['location']])
 }
