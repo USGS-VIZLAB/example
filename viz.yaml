@@ -278,7 +278,7 @@ publish:
   -
     id: social-section
     template: social-media-template
-    publisher: section
+    publisher: social
     mainEmbed: TRUE
     facebookLink: http://www.facebook.com/sharer.php?u=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F
     twitterLink: https://twitter.com/share?url=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F&text=EAMPLE1%20stuff&hashtags=EAMPLE1,EAMPLE2,dataviz
@@ -287,7 +287,7 @@ publish:
   -
     id: vertical-social-section
     template: vertical-social-media-template
-    publisher: section
+    publisher: social
     mainEmbed: TRUE
     facebookLink: http://www.facebook.com/sharer.php?u=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F
     twitterLink: https://twitter.com/share?url=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F&text=EAMPLE1%20stuff&hashtags=EAMPLE1,EAMPLE2,dataviz
