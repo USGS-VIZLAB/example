@@ -69,6 +69,11 @@ parameter:
   -
     id: color-stuff
     points: green
+  - 
+    id: social-links
+    facebook: http://www.facebook.com/sharer.php?u=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F
+    github: https://github.com/USGS-VIZLAB/example
+    twitter: https://twitter.com/share?url=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F&text=EAMPLE1%20stuff&hashtags=EXAMPLE1,EXAMPLE2,dataviz
 fetch:
   -
     id: iris-data
@@ -279,19 +284,15 @@ publish:
     id: social-section
     template: social-media-template
     publisher: social
+    depends: social-links
     mainEmbed: TRUE
-    facebookLink: http://www.facebook.com/sharer.php?u=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F
-    twitterLink: https://twitter.com/share?url=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F&text=EAMPLE1%20stuff&hashtags=EAMPLE1,EAMPLE2,dataviz
-    githubLink: https://github.com/USGS-VIZLAB/example
     embedLink: embed-dots.html
   -
     id: vertical-social-section
     template: vertical-social-media-template
     publisher: social
     mainEmbed: TRUE
-    facebookLink: http://www.facebook.com/sharer.php?u=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F
-    twitterLink: https://twitter.com/share?url=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F&text=EAMPLE1%20stuff&hashtags=EAMPLE1,EAMPLE2,dataviz
-    githubLink: https://github.com/USGS-VIZLAB/example
+    depends: social-links
     embedLink: embed-dots.html
   -
     id: header-section
