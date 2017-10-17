@@ -9,11 +9,58 @@ info:
   description: >-
     This is meant to touch all features and act as an integration
     test of the vizlab platform.
+  keywords: vizlab, visualizations, data, R
+  twitter: "@USGS_R"
+  owner:
+    name: Alison Appling
+    email: aappling@usgs.gov
+    affiliation: U.S. Geological Survey
+  contributors:
+    -
+      name: Jordan Walker
+      email: jiwalker@usgs.gov
+      affiliation: U.S. Geological Survey
+    -
+      name: Lindsay Carr
+      email: lcarr@usgs.gov
+      affiliation: U.S. Geological Survey
+    -
+      name: Samantha Oliver
+      email: soliver@usgs.gov
+      affiliation: U.S. Geological Survey
+    -
+      name: Jordan Read
+      email: jread@usgs.gov
+      affiliation: U.S. Geological Survey
+    -
+      name: David Watkins
+      email: wwatkins@usgs.gov
+      affiliation: U.S. Geological Survey
+    -
+      name: Marty Wernimont
+      email: mwernimont@usgs.gov
+      affiliation: U.S. Geological Survey
+    -
+      name: Jacob Zwart
+      email: jzwart@usgs.gov
+      affiliation: U.S. Geological Survey
   required-packages:
+    vizlab:
+      repo: github
+      version: 0.2.0
+      name: USGS-VIZLAB/vizlab
+      ref: f685369086a4d9f890ad8ce837dfa582586aaba3
+    dplyr:
+      repo: CRAN
+      version: 0.7.2
+    dataRetrieval:
+      repo: GRAN
+      version: 2.7.3
     vizlab:
       repo: github
       version: 0.2.2.9004
       name: USGS-VIZLAB/vizlab
+      ref: 60fa3451555eea532c06c03f217ab46f0e28ff9a
     svglite: 
       repo: github
       version: 1.2.0.9003
@@ -44,7 +91,7 @@ fetch:
     location: cache/fetch/CuyahogaTDS.csv
     fetcher: sciencebase
     scripts:
-    remoteItemId: 575d839ee4b04f417c2a03fe
+    remoteItemId: 59dffeb3e4b05fe04cce9fc2
     remoteFilename: CuyahogaTDS.csv
     mimetype: text/csv
   -
