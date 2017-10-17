@@ -45,17 +45,22 @@ info:
       email: jzwart@usgs.gov
       affiliation: U.S. Geological Survey
   required-packages:
-    vizlab:
-      repo: github
-      version: 0.2.0
-      name: USGS-VIZLAB/vizlab
-      ref: f685369086a4d9f890ad8ce837dfa582586aaba3
     dplyr:
       repo: CRAN
       version: 0.7.2
     dataRetrieval:
       repo: GRAN
       version: 2.7.3
+    vizlab:
+      repo: github
+      version: 0.2.2.9004
+      name: USGS-VIZLAB/vizlab
+      ref: 60fa3451555eea532c06c03f217ab46f0e28ff9a
+    svglite: 
+      repo: github
+      version: 1.2.0.9003
+      name: jread-usgs/svglite
+      ref: svgnano_03
 parameter:
   -
     id: plot-info
@@ -134,6 +139,22 @@ visualize:
     mimetype: image/svg+xml
     title: "Cuyahoga figure"
     alttext: "figure displaying total dissovled solids vs. discharge of Cuyahoga river"
+  -
+    id: coupla_dots
+    location: figures/coupla_dots.svg
+    scripts: scripts/visualize/visualize.R
+    visualizer: dots
+    mimetype: image/svg+xml
+    title: "dots for testing interactions"
+    alttext: "there is not much to look at here"
+  -
+    id: path
+    location: figures/path.svg
+    scripts: scripts/visualize/visualize.R
+    visualizer: path
+    mimetype: image/svg+xml
+    title: "path for testing interactions"
+    alttext: "there is not much to look at here"
 publish:
   -
     id: index
@@ -143,6 +164,8 @@ publish:
     depends: 
       sourcesansprofont: "sourcesansprofont"
       cars-section: "cars-section"
+      dots_section: "dots_section"
+      path_section: "path_section"
       social: "social-section"
       vertical-social: "vertical-social-section"
       footer: "footer-section"
@@ -155,14 +178,17 @@ publish:
       markdown-section2: "markdown-section2"
       footerCSS: "lib-footer-css"
       headerCSS: "lib-header-css"
+      svgCSS: "svg-css"
       socialCSS: "lib-social-media-css"
       jquery: "lib-jquery-js"
       svg-inject: "lib-svg-injector-js"
       vizlabjs: "lib-vizlab-javascript"
+      lib-d3-js: "lib-d3-js"
+      tooltip-js: "lib-tooltip-js"
     context:
       title: Testing
-      sections: [ "vertical-social", "cars-section", "social", "text-section", "iris-section", "markdown-section1", "Cuyahoga-section", "markdown-section2"]
-      resources: [ "figure-style", "footerCSS", "headerCSS", "socialCSS", "sourcesansprofont","jquery", "svg-inject", "vizlabjs"]
+      sections: [ "vertical-social", "cars-section", "dots_section", "path_section", "social", "text-section", "iris-section", "markdown-section1", "Cuyahoga-section", "markdown-section2"]
+      resources: [ "figure-style", "footerCSS", "headerCSS", "svgCSS","socialCSS", "sourcesansprofont","jquery", "svg-inject", "vizlabjs", "lib-d3-js", "tooltip-js"]
   -
     id: cars-section
     publisher: section
@@ -172,6 +198,24 @@ publish:
       id: carsFig
       figure: "plot-cars"
       caption: Relationship between speed and stopping distance on several cars
+  -
+    id: dots_section
+    publisher: section
+    template: simplefigure
+    depends: [ "coupla_dots" ]
+    context:
+      id: svg-dots
+      figure: "coupla_dots"
+      caption: dots that are svg elements
+  -
+    id: path_section
+    publisher: section
+    template: simplefigure
+    depends: [ "path" ]
+    context:
+      id: svg-path
+      figure: "path"
+      caption: path svg elements
   -
     id: text-section
     template: printall
@@ -261,3 +305,8 @@ publish:
     publisher: googlefont
     family: "Source Sans Pro"
     weight: [300, 400, 600]
+  -
+    id: svg-css
+    location: layout/css/svg.css
+    mimetype: text/css
+    publisher: resource

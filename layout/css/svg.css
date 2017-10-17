@@ -1,0 +1,22 @@
+.tooltip-box{
+  stroke-width: 0.5;
+  stroke: grey;
+  opacity: 0.9;
+  fill: #E8E8E8;
+}
+
+line, polyline, path{
+  fill: none;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-miterlimit: 10.00;
+}
+
+.svg-text {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  cursor: default;
+}
