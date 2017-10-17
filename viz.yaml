@@ -9,6 +9,16 @@ info:
   description: >-
     This is meant to touch all features and act as an integration
     test of the vizlab platform.
+  required-packages:
+    vizlab:
+      repo: github
+      version: 0.2.2.9004
+      name: USGS-VIZLAB/vizlab
+    svglite: 
+      repo: github
+      version: 1.2.0.9003
+      name: jread-usgs/svglite
+      ref: svgnano_03
 parameter:
   -
     id: plot-info
