@@ -259,6 +259,18 @@ publish:
       figure: cuyahogaFig
       caption: Total dissolved solids vs discharge
   -
+    id: embed-page
+    name: embed-dots
+    publisher: page
+    template: embed
+    mimetype: text/html
+    depends: ["dots_section", "svg-css", "lib-jquery-js", "lib-vizlab-javascript", 
+      "lib-vizlab-favicon", "lib-social-media-css","lib-tooltip-js","lib-d3-js"]
+    context:
+      resources: ["svg-css", "lib-jquery-js", "lib-vizlab-javascript", 
+        "lib-vizlab-favicon", "lib-social-media-css","lib-tooltip-js","lib-d3-js"]
+      embed: ["dots_section"]
+  -
     id: figure-style
     location: layout/css/main.css
     publisher: resource
@@ -266,12 +278,22 @@ publish:
   -
     id: social-section
     template: social-media-template
+    mainEmbed: true
     publisher: section
+    facebookLink: http://www.facebook.com/sharer.php?u=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F
+    twitterLink: https://twitter.com/share?url=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F&text=EAMPLE1%20stuff&hashtags=EAMPLE1,EAMPLE2,dataviz
+    githubLink: https://github.com/USGS-VIZLAB/example
+    embedLink: embed-dots.html
     depends: ["lib-social-media-css"]
   -
     id: vertical-social-section
     template: vertical-social-media-template
     publisher: section
+    mainEmbed: true
+    facebookLink: http://www.facebook.com/sharer.php?u=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F
+    twitterLink: https://twitter.com/share?url=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F&text=EAMPLE1%20stuff&hashtags=EAMPLE1,EAMPLE2,dataviz
+    githubLink: https://github.com/USGS-VIZLAB/example
+    embedLink: embed-dots.html
     depends: ["lib-social-media-css"]
   -
     id: header-section
