@@ -45,11 +45,6 @@ info:
       email: jzwart@usgs.gov
       affiliation: U.S. Geological Survey
   required-packages:
-    vizlab:
-      repo: github
-      version: 0.2.0
-      name: USGS-VIZLAB/vizlab
-      ref: f685369086a4d9f890ad8ce837dfa582586aaba3
     dplyr:
       repo: CRAN
       version: 0.7.2
