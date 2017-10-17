@@ -278,33 +278,27 @@ publish:
   -
     id: social-section
     template: social-media-template
-    mainEmbed: TRUE
     publisher: section
+    mainEmbed: TRUE
     facebookLink: http://www.facebook.com/sharer.php?u=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F
     twitterLink: https://twitter.com/share?url=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F&text=EAMPLE1%20stuff&hashtags=EAMPLE1,EAMPLE2,dataviz
     githubLink: https://github.com/USGS-VIZLAB/example
     embedLink: embed-dots.html
-    depends: ["lib-social-media-css"]
   -
     id: vertical-social-section
     template: vertical-social-media-template
     publisher: section
-    mainEmbed: true
+    mainEmbed: TRUE
     facebookLink: http://www.facebook.com/sharer.php?u=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F
     twitterLink: https://twitter.com/share?url=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F&text=EAMPLE1%20stuff&hashtags=EAMPLE1,EAMPLE2,dataviz
     githubLink: https://github.com/USGS-VIZLAB/example
     embedLink: embed-dots.html
-    depends: ["lib-social-media-css"]
   -
     id: header-section
     template: header-template
-    publisher: section
-    depends: lib-usgs-logo
+    publisher: header
     context:
-      id: header
       title: Example Viz
-      logo: usgs-logo
-      caption: Example Viz
   -
     id: footer-section
     template: footer-template
