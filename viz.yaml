@@ -268,11 +268,9 @@ publish:
     publisher: page
     template: embed
     mimetype: text/html
-    depends: ["dots_section", "svg-css", "lib-jquery-js", "lib-vizlab-javascript","lib-svg-injector-js", 
-      "lib-vizlab-favicon", "lib-social-media-css","lib-d3-js","lib-tooltip-js"]
+    depends: ["dots_section", "svg-css", "lib-jquery-js", "lib-vizlab-javascript","lib-svg-injector-js", "lib-vizlab-favicon", "lib-social-media-css","lib-d3-js","lib-tooltip-js"]
     context:
-      resources: ["svg-css", "lib-jquery-js", "lib-svg-injector-js", "lib-vizlab-javascript",
-        "lib-vizlab-favicon", "lib-social-media-css","lib-d3-js","lib-tooltip-js"]
+      resources: ["svg-css", "lib-jquery-js", "lib-svg-injector-js", "lib-vizlab-javascript","lib-vizlab-favicon", "lib-social-media-css","lib-d3-js","lib-tooltip-js"]
       embed: ["dots_section"]
   -
     id: figure-style
@@ -284,15 +282,17 @@ publish:
     template: social-media-template
     publisher: social
     depends: social-links
-    embedLink: embed-dots.html
-    facebookLink: http://www.facebook.com/sharer.php?u=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F
+    context:
+      embedLink: embed-dots.html
+      facebookLink: http://www.facebook.com/sharer.php?u=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F
   -
     id: vertical-social-section
     template: vertical-social-media-template
     publisher: social
     depends: social-links
-    embedLink: embed-dots.html
-    facebookLink: http://www.facebook.com/sharer.php?u=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F
+    context: 
+      embedLink: embed-dots.html
+      facebookLink: http://www.facebook.com/sharer.php?u=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F
   -
     id: header-section
     template: header-template
