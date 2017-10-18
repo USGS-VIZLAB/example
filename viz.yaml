@@ -311,11 +311,11 @@ publish:
         org: USGS-CIDA
         repo: OWDI-Lower-Colorado-Drought-Vis
       - name: Microplastics in the Great Lakes
-        org: USGS-VIZLAB
-        repo: great-lakes-microplastics
+        url: https://owi.usgs.gov/vizlab/microplastics/
+        thumbLoc: https://owi.usgs.gov/vizlab/microplastics/images/thumbnail.png
     blogs:
       - name: Visualizing Tropical Storm Colin Precipitation using geoknife
-        url: https://owi.usgs.gov/blog/ts-colin-precip/
+        org: https://owi.usgs.gov/blog/ts-colin-precip/
         thumbLoc: https://owi.usgs.gov/blog/static/ts-colin-precip/use-functions-1.png
   -
     id: sourcesansprofont
