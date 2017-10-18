@@ -71,7 +71,6 @@ parameter:
     points: green
   - 
     id: social-links
-    facebook: http://www.facebook.com/sharer.php?u=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F
     github: https://github.com/USGS-VIZLAB/example
     twitter: https://twitter.com/share?url=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F&text=EAMPLE1%20stuff&hashtags=EXAMPLE1,EXAMPLE2,dataviz
 fetch:
@@ -285,15 +284,15 @@ publish:
     template: social-media-template
     publisher: social
     depends: social-links
-    mainEmbed: TRUE
     embedLink: embed-dots.html
+    facebookLink: http://www.facebook.com/sharer.php?u=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F
   -
     id: vertical-social-section
     template: vertical-social-media-template
     publisher: social
-    mainEmbed: TRUE
     depends: social-links
     embedLink: embed-dots.html
+    facebookLink: http://www.facebook.com/sharer.php?u=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F
   -
     id: header-section
     template: header-template
