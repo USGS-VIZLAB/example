@@ -69,6 +69,10 @@ parameter:
   -
     id: color-stuff
     points: green
+  - 
+    id: social-links
+    github: https://github.com/USGS-VIZLAB/example
+    twitter: https://twitter.com/share?url=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F&text=EAMPLE1%20stuff&hashtags=EXAMPLE1,EXAMPLE2,dataviz
 fetch:
   -
     id: iris-data
@@ -259,6 +263,16 @@ publish:
       figure: cuyahogaFig
       caption: Total dissolved solids vs discharge
   -
+    id: embed-page
+    name: embed-dots
+    publisher: page
+    template: embed
+    mimetype: text/html
+    depends: ["dots_section", "svg-css", "lib-jquery-js", "lib-d3-js","lib-tooltip-js"]
+    context:
+      resources: ["svg-css", "lib-jquery-js", "lib-svg-injector-js", "lib-vizlab-javascript","lib-vizlab-favicon", "lib-d3-js","lib-tooltip-js"]
+      embed: ["dots_section"]
+  -
     id: figure-style
     location: layout/css/main.css
     publisher: resource
@@ -266,23 +280,25 @@ publish:
   -
     id: social-section
     template: social-media-template
-    publisher: section
-    depends: ["lib-social-media-css"]
+    publisher: social
+    depends: social-links
+    context:
+      embedLink: embed-dots.html
+      facebookLink: http://www.facebook.com/sharer.php?u=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F
   -
     id: vertical-social-section
     template: vertical-social-media-template
-    publisher: section
-    depends: ["lib-social-media-css"]
+    publisher: social
+    depends: social-links
+    context: 
+      embedLink: embed-dots.html
+      facebookLink: http://www.facebook.com/sharer.php?u=https%3A%2F%2Fowi.usgs.gov%2Fvizlab%2FEXAMPLE%2F
   -
     id: header-section
     template: header-template
-    publisher: section
-    depends: lib-usgs-logo
+    publisher: header
     context:
-      id: header
       title: Example Viz
-      logo: usgs-logo
-      caption: Example Viz
   -
     id: footer-section
     template: footer-template
@@ -294,11 +310,11 @@ publish:
         org: USGS-CIDA
         repo: OWDI-Lower-Colorado-Drought-Vis
       - name: Microplastics in the Great Lakes
-        org: USGS-VIZLAB
-        repo: great-lakes-microplastics
+        url: https://owi.usgs.gov/vizlab/microplastics/
+        thumbLoc: https://owi.usgs.gov/vizlab/microplastics/images/thumbnail.png
     blogs:
       - name: Visualizing Tropical Storm Colin Precipitation using geoknife
-        url: https://owi.usgs.gov/blog/ts-colin-precip/
+        org: https://owi.usgs.gov/blog/ts-colin-precip/
         thumbLoc: https://owi.usgs.gov/blog/static/ts-colin-precip/use-functions-1.png
   -
     id: sourcesansprofont
