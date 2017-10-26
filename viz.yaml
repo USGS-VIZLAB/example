@@ -326,3 +326,35 @@ publish:
     location: layout/css/svg.css
     mimetype: text/css
     publisher: resource
+  -
+    id: thumb-facebook
+    location: images/thumb-facebook.png
+    publisher: thumbnail
+    for: facebook
+    mimetype: image/png
+    title: "Facebook Thumbnail"
+    alttext: "Facebook Thumbnail"
+  -
+    id: thumb-twitter
+    location: images/thumb-twitter.png
+    publisher: thumbnail
+    for: twitter
+    mimetype: image/png
+    title: "Twitter Thumbnail"
+    alttext: "Twitter Thumbnail"
+  -
+    id: thumb-landing
+    location: images/thumb-main.png
+    mimetype: image/png
+    publisher: thumbnail
+    for: landing
+    title: "Landing Page Thumbnail"
+    alttext: "Landing Page Thumbnail"
+  -
+    id: thumb-main
+    location: images/thumb-main.png
+    mimetype: image/png
+    publisher: thumbnail
+    for: main
+    title: "Default Thumbnail"
+    alttext: "Default Thumbnail"
