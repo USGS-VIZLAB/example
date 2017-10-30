@@ -166,33 +166,41 @@ publish:
     publisher: page
     template: fullpage
     depends: 
-      sourcesansprofont: "sourcesansprofont"
-      cars-section: "cars-section"
-      dots_section: "dots_section"
-      path_section: "path_section"
-      social: "social-section"
-      vertical-social: "vertical-social-section"
-      footer: "footer-section"
-      header: "header-section"
-      figure-style: "figure-style"
-      text-section: "text-section"
-      iris-section: "iris-section"
-      Cuyahoga-section: "Cuyahoga-section"
-      markdown-section1: "markdown-section1"
-      markdown-section2: "markdown-section2"
-      footerCSS: "lib-footer-css"
-      headerCSS: "lib-header-css"
-      svgCSS: "svg-css"
-      socialCSS: "lib-social-media-css"
-      jquery: "lib-jquery-js"
-      svg-inject: "lib-svg-injector-js"
-      vizlabjs: "lib-vizlab-javascript"
-      lib-d3-js: "lib-d3-js"
-      tooltip-js: "lib-tooltip-js"
+      sourcesansprofont: sourcesansprofont
+      cars-section: cars-section
+      dots_section: dots_section
+      path_section: path_section
+      social: social-section
+      vertical-social: vertical-social-section
+      footer: footer-section
+      header: header-section
+      figure-style: figure-style
+      text-section: text-section
+      iris-section: iris-section
+      Cuyahoga-section: Cuyahoga-section
+      markdown-section1: markdown-section1
+      markdown-section2: markdown-section2
+      footerCSS: lib-footer-css
+      headerCSS: lib-header-css
+      svgCSS: svg-css
+      socialCSS: lib-social-media-css
+      jquery: lib-jquery-js
+      svg-inject: lib-svg-injector-js
+      vizlabjs: lib-vizlab-javascript
+      lib-d3-js: lib-d3-js
+      tooltip-js: lib-tooltip-js
+      thumb-twitter: thumb-twitter
+      thumb-facebook: thumb-facebook
+      thumb-landing: thumb-landing
     context:
       title: Testing
       sections: [ "vertical-social", "cars-section", "dots_section", "path_section", "social", "text-section", "iris-section", "markdown-section1", "Cuyahoga-section", "markdown-section2"]
       resources: [ "figure-style", "footerCSS", "headerCSS", "svgCSS","socialCSS", "sourcesansprofont","jquery", "svg-inject", "vizlabjs", "lib-d3-js", "tooltip-js"]
+      thumbnails: 
+        twitter: thumb-twitter
+        facebook: thumb-facebook
+        landing: thumb-landing
+        main: thumb-twitter
   -
     id: cars-section
     publisher: section
@@ -330,31 +338,23 @@ publish:
     id: thumb-facebook
     location: images/thumb-facebook.png
     publisher: thumbnail
-    for: facebook
     mimetype: image/png
+    thumbType: facebook
     title: "Facebook Thumbnail"
     alttext: "Facebook Thumbnail"
   -
     id: thumb-twitter
     location: images/thumb-twitter.png
     publisher: thumbnail
-    for: twitter
+    thumbType: twitter
     mimetype: image/png
     title: "Twitter Thumbnail"
     alttext: "Twitter Thumbnail"
   -
     id: thumb-landing
-    location: images/thumb-main.png
-    mimetype: image/png
+    location: images/thumb-landing.png
     publisher: thumbnail
-    for: landing
-    title: "Landing Page Thumbnail"
-    alttext: "Landing Page Thumbnail"
-  -
-    id: thumb-main
-    location: images/thumb-main.png
     mimetype: image/png
-    publisher: thumbnail
-    for: main
-    title: "Default Thumbnail"
-    alttext: "Default Thumbnail"
+    thumbType: ["landing","main"]
+    title: "Landing Thumbnail"
+    alttext: "Landing Thumbnail"
