@@ -200,7 +200,7 @@ publish:
         twitter: thumb-twitter
         facebook: thumb-facebook
         landing: thumb-landing
-        main: thumb-twitter
+        main: thumb-landing
   -
     id: cars-section
     publisher: section
@@ -355,6 +355,6 @@ publish:
     location: images/thumb-landing.png
     publisher: thumbnail
     mimetype: image/png
-    thumbType: ["landing","main"]
+    thumbType: [landing, main]
     title: "Landing Thumbnail"
     alttext: "Landing Thumbnail"
